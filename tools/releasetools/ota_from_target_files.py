@@ -1285,13 +1285,14 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
   build_id = target_info.GetBuildProp("ro.build.id")
-  build_date = target_info.GetBuildProp("org.pixelexperience.build_date")
+  build_date = target_info.GetBuildProp("org.aospify.build_date")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
-  device = target_info.GetBuildProp("org.pixelexperience.device")
+  device = target_info.GetBuildProp("org.aospify.device")
 
   script.Print("----------------------------------------------");
-  script.Print("              Pixel Experience");
-  script.Print("               by jhenrique09");
+  script.Print("                    Aospify");
+  script.Print("                   Pure AOSP");
+  script.Print("                 by SlimShadys");
   script.Print("----------------------------------------------");
   script.Print(" Android version: %s"%(android_version));
   script.Print(" Build id: %s"%(build_id));
@@ -2061,13 +2062,13 @@ else if get_stage("%(bcb_dev)s") != "3/3" then
   script.Print("Target: {}".format(target_info.fingerprint))
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
-  device = target_info.GetBuildProp("org.pixelexperience.device")
+  device = target_info.GetBuildProp("org.aospify.device")
 
   prev_build_id = source_info.GetBuildProp("ro.build.id")
   build_id = target_info.GetBuildProp("ro.build.id")
 
-  prev_build_date = source_info.GetBuildProp("org.pixelexperience.build_date")
-  build_date = target_info.GetBuildProp("org.pixelexperience.build_date")
+  prev_build_date = source_info.GetBuildProp("org.aospify.build_date")
+  build_date = target_info.GetBuildProp("org.aospify.build_date")
 
   prev_security_patch = source_info.GetBuildProp("ro.build.version.security_patch")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
@@ -2599,13 +2600,13 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_file):
   device_specific.IncrementalOTA_Assertions()
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
-  device = target_info.GetBuildProp("org.pixelexperience.device")
+  device = target_info.GetBuildProp("org.aospify.device")
 
   prev_build_id = source_info.GetBuildProp("ro.build.id")
   build_id = target_info.GetBuildProp("ro.build.id")
 
-  prev_build_date = source_info.GetBuildProp("org.pixelexperience.build_date")
-  build_date = target_info.GetBuildProp("org.pixelexperience.build_date")
+  prev_build_date = source_info.GetBuildProp("org.aospify.build_date")
+  build_date = target_info.GetBuildProp("org.aospify.build_date")
 
   prev_security_patch = source_info.GetBuildProp("ro.build.version.security_patch")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
@@ -2657,7 +2658,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_file):
 
   prop_path = "/" + GetSystemBasePath() + "/system/build.prop"
 
-  source_version_prop = "org.pixelexperience.version.display"
+  source_version_prop = "org.aospify.version.display"
 
   source_version = os.path.splitext(os.path.basename(OPTIONS.incremental_source))[0]
 
