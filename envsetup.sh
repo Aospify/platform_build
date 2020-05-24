@@ -606,13 +606,13 @@ function lunch()
     do
         choices+=($makefile_target)
     done
-    for other_target in ${lunch_others_targets[@]}
-    do
-        if [[ " ${choices[*]} " != *"$other_target"* ]];
-        then
-            choices+=($other_target)
-        fi
-    done
+    #for other_target in ${lunch_others_targets[@]}
+    #do
+    #    if [[ " ${choices[*]} " != *"$other_target"* ]];
+    #    then
+    #        choices+=($other_target)
+    #    fi
+    #done
 
     if [ "$1" ] ; then
         answer=$1
