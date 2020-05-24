@@ -77,7 +77,8 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 28
 
 # More AOSP packages
 PRODUCT_PACKAGES += \
-    WAPPushManager
+    WAPPushManager \
+    messaging
 
 # Telephony:
 #   Provide a APN configuration to GSI product
