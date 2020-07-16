@@ -581,18 +581,21 @@ function add_lunch_combo()
 function print_lunch_menu()
 {
     local uname=$(uname)
-    echo
+    local choices=$(TARGET_BUILD_APPS= get_build_var COMMON_LUNCH_CHOICES)
     echo "You're building on" $uname
-    echo
-    echo "Lunch menu... pick a combo:"
+    if [ "$(uname)" = "Darwin" ] ; then
+       echo "  (ohai, Ibish!)"
+    fi
+	echo
+    echo "Pick a combo:"
 
     local i=1
     local choice
-    for choice in ${choices[@]}
+    for choice in $(echo $choices)
     do
-        echo "     $i. $choice"
+        echo " $i. $choice "
         i=$(($i+1))
-    done
+    done | column
 
     echo
 }
@@ -616,22 +619,10 @@ function lunch()
 
     if [ "$1" ] ; then
         answer=$1
-        if (echo -n $answer | grep -q -e "^[0-9][0-9]*$")
-        then
-            echo
-            echo "Invalid lunch combo"
-            return 1
-        fi
     else
         print_lunch_menu
         echo -n "Which would you like? "
         read answer
-        if ! (echo -n $answer | grep -q -e "^[0-9][0-9]*$")
-        then
-            echo
-            echo "Invalid lunch combo"
-            return 1
-        fi
     fi
 
     local selection=
