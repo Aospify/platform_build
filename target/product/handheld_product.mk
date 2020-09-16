@@ -26,7 +26,6 @@ PRODUCT_PACKAGES += \
     Contacts \
     DeskClock \
     Gallery2 \
-    Launcher3 \
     LatinIME \
     OneTimeInitializer \
     Provision \
